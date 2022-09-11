@@ -12,6 +12,8 @@ public class Project_CPIT251 {
         System.out.println("hello, I am Dalal Alsolami");
         
         System.out.println("hello, I am Shatha Alsulami");
+        
+        System.out.println("Hello, I am Shatha Hamed Almalki");
     }
 
 }
