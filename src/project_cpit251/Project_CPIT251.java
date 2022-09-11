@@ -8,6 +8,7 @@ public class Project_CPIT251 {
         System.out.println("Hi, I am Nesreen Alghamdi");
         
         System.out.println("Hiii I am shatha");
+        System.out.println("hi, I am Dalal Alsolami");
     }
 
 }
