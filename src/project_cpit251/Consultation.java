@@ -7,7 +7,9 @@ public class Consultation {
     Customers ConsultationAt;
     Lawyer ConsultationLawyer;
     
-    
+     Consultation(String desc) {
+        this.Descrption = desc;
+    }
      public int getConID() {
         return ConID;
     }

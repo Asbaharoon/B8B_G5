@@ -14,6 +14,15 @@ public class Customers extends User{
         }
         return null;
     }
+    public String MakeConsultation(String CaseType, String name, ArrayList<Lawyer> list) {
+
+        for (int i = 0; i < list.size(); i++) {
+            if (name.equalsIgnoreCase(list.get(i).getN())) {
+                return list.get(i).getC();
+            }
+        }
+        return null;
+    }
 
 
   

@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Project_CPIT251 {
 
-public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
         //read from file
         File file1 = new File("input.txt");
 
@@ -20,7 +19,7 @@ public static void main(String[] args) throws FileNotFoundException {
         //decler array list from lawyer class type
         ArrayList<Lawyer> list = new ArrayList<>();
         //read the data from input file and stor
-        while (input.hasNext()){
+        while (input.hasNext()) {
             String Name = input.nextLine();
             String Degree = input.nextLine();
             String Specialty = input.nextLine();
@@ -44,18 +43,54 @@ public static void main(String[] args) throws FileNotFoundException {
             //return the lawyer information if the laweyer founded
             System.out.println(result.toString());
         }
+        do {
+            switch (Menu()) {
+                case 1:
+                    //Create a customer object to to start consltation request from the customer
+                    Customers consultSession = new Customers();
+                    System.out.print("Please enter yourcase type? ");
+                    String casetype = input2.nextLine();
+                    // the method will check if the customer case type match the lawyer case types
+                    String cases = consultSession.MakeConsultation(casetype, name, list);
+                    if (cases == null) {
+                        // if not, the system will reject customer request 
+                        System.out.println("This type of cases is not this lawyer specialty!");
+                        System.out.println("We are sorry your Consultation request has been rejected");
 
+                    } else {
+                        // if it matched, the customer will send a brief description for his case
+                        System.out.print("Please enter a brief description about your case: ");
+                        String desc = input2.nextLine();
+                        // the customer description will be saved as an object and get an ID and sent to the lawyer
+                        Consultation Cdesc = new Consultation(desc);
+
+                        System.out.println("Your case description has been sent to the laywer\n We will inform you about the session details soon\n Be patient ♡");
+
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.exit(0);
+
+            }
+        } while (true);
+
+    }
+//this method will display the menu for the user and run choosen function
+
+    public static int Menu() {
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("    1.  Make Consultation\n    2.  Manage"
+                + " Lawyer Profile\n    3.  Rating Consultation Session");
+        System.out.println("--------------------------------------------------");
+        System.out.print("Enter your choice (1 - 4) or any other number to terminate the program : ");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        return choice;
     }
 
 }
-
-
-
-
-
-
-   
-  
-
-
-
