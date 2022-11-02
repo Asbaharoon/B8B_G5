@@ -1,14 +1,22 @@
 
 package project_cpit251;
 
-public abstract class User {
+public  class User {
     String UserName = null;
     String userPassword = null;
     String UserEmail = null;
     int Phone;
     int UserID;
+    public User( ) {
+        
+    }
+    public User(String UserName, String userPassword, int UserID) {
+        this.UserName = UserName;
+        this.userPassword = userPassword;
+        this.UserID = UserID;
+    }
    
-    public String getUserN() {
+    public String getUserName() {
         return UserName;
     }
 

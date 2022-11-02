@@ -6,29 +6,36 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Project_CPIT251 {
-
+  static ArrayList<User>   user = new ArrayList<>();
+   static ArrayList<Lawyer>   list= new ArrayList<>();  //decler array list from lawyer class type
+     static int numUser =-1;
     public static void main(String[] args) throws FileNotFoundException {
-        //read from file
-        File file1 = new File("input.txt");
-
-        if (!file1.exists()) {
-            throw new FileNotFoundException("file is not exist");
-        }
-        Scanner input = new Scanner(file1);
+        
+        Readfile(); //read from file
         Scanner input2 = new Scanner(System.in);
-        //decler array list from lawyer class type
-        ArrayList<Lawyer> list = new ArrayList<>();
-        //read the data from input file and stor
-        while (input.hasNext()) {
-            String Name = input.nextLine();
-            String Degree = input.nextLine();
-            String Specialty = input.nextLine();
-            String price = input.nextLine();
-            String num = input.nextLine();
-            String CasesTyep = input.nextLine();
-            list.add(new Lawyer(Name, Degree, Specialty, CasesTyep, Double.parseDouble(price), Integer.parseInt(num)));
+          while (true) {
+            System.out.println("--------------------------------------\n");
+            System.out.println("        Welcome to Consultation \n");
+            System.out.println("--------------------------------------");
+            System.out.print("Enter Username: ");
+            String username = input2.next();
+            System.out.print("Enter Password: ");
+            String password = input2.next();
+            boolean checking = Login(username, password);
+            if (checking == false) {
+                System.out.println("The user password or Username is incorrect");
+                System.out.println("Please try Again \n");
 
+                //continue;
+            } else {
+                System.out.println("       Welcome Back to Consultation \n");
+                break;
+            }
         }
+        
+         
+        
+       
         //object from coustmer class
         Customers object = new Customers();
         //take the input rom user
@@ -93,4 +100,47 @@ public class Project_CPIT251 {
         return choice;
     }
 
+     public static boolean Login(String username, String password) {
+
+        //search for the user and return it
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getuserPassword().equals(password) && user.get(i).getUserName().equals(username)) {
+                numUser =i;
+                 return true;
+            }
+        }
+        return false;
+    }
+    public static void Readfile() throws FileNotFoundException {
+        File file1 = new File("input.txt");
+
+        if (!file1.exists()) {
+            throw new FileNotFoundException("file is not exist");
+        }
+        Scanner input = new Scanner(file1);
+
+        //read the data from input file and stor
+        while (input.hasNext()) {
+            String Name = input.nextLine();
+            String Degree = input.nextLine();
+            String Specialty = input.nextLine();
+            String price = input.nextLine();
+            String num = input.nextLine();
+            String CasesTyep = input.nextLine();
+            list.add(new Lawyer(Name, Degree, Specialty, CasesTyep, Double.parseDouble(price), Integer.parseInt(num)));
+
+        }
+
+        File file2 = new File("login.txt");
+        if (!file2.exists()) {
+            throw new FileNotFoundException("file is not exist");
+        }
+        Scanner inputlogin = new Scanner(file2);
+        //read the data from input file and stor
+        while (inputlogin.hasNext()) {
+            user.add(new User(inputlogin.next(), inputlogin.next(), inputlogin.nextInt()));
+
+        }
+    }
+    
 }
