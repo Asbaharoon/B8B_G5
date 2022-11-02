@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Customers extends User{
 
     //Method that takes the name enterd by user and th array list to serach by lawyer name 
-    public Lawyer searchForLawyer(String name, ArrayList<Lawyer> list ) {
+    public static Lawyer searchForLawyer(String name, ArrayList<Lawyer> list ) {
         
         for(int i=0;i<list.size();i++){
             if(name.equalsIgnoreCase(list.get(i).getN()))
