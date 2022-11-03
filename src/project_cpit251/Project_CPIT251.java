@@ -9,6 +9,7 @@ public class Project_CPIT251 {
 
     static ArrayList<User> user = new ArrayList<>();
     static ArrayList<Lawyer> list = new ArrayList<>();  //decler array list from lawyer class type
+    static ArrayList<Consultation> Lschedule = new ArrayList<>();
     static int numUser = -1;
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -49,27 +50,20 @@ public class Project_CPIT251 {
                 }
                 switch (Menu()) {
                     case 1:
-                        //Create a customer object to to start consltation request from the customer
-                        Customers consultSession = new Customers();
-                        System.out.print("Please enter yourcase type? ");
-                        String casetype = input2.nextLine();
-                        // the method will check if the customer case type match the lawyer case types
-                        String cases = consultSession.MakeConsultation(casetype, name, list);
-                        if (cases == null) {
-                            // if not, the system will reject customer request 
-                            System.out.println("This type of cases is not this lawyer specialty!");
-                            System.out.println("We are sorry your Consultation request has been rejected");
-
-                        } else {
-                            // if it matched, the customer will send a brief description for his case
-                            System.out.print("Please enter a brief description about your case: ");
-                            String desc = input2.nextLine();
-                            // the customer description will be saved as an object and get an ID and sent to the lawyer
-                            Consultation Cdesc = new Consultation(desc);
-
-                            System.out.println("Your case description has been sent to the laywer\n We will inform you about the session details soon\n Be patient ♡");
-
+                       //print all lawyers profile
+                        for (int i = 0; i < list.size(); i++) {
+                            System.out.println("\n"+list.get(i).toString());
+                            System.out.println("-----------------------------------");
                         }
+                        System.out.print("Please enter your choice of lawyer: ");
+                        String Lname = input.nextLine();
+                        // if the entered name match lawyer appointment will display
+                        Displayschedule(Lname, list); 
+                        System.out.println("\n----If it is suitable for you please write (Y)  and if not  (N)-------");
+                        String choise = input.next();
+                        //take customer choise and book consltation appoinment
+                        BookConsultation(choise); 
+
                         break;
                     case 2:
                         if (name.equalsIgnoreCase(result.getN())) {
@@ -123,7 +117,7 @@ public class Project_CPIT251 {
         }
         Scanner input = new Scanner(file1);
 
-        //read the data from input file and stor
+        //read the data from input file and store it
         while (input.hasNext()) {
             String Name = input.nextLine();
             String Phone = input.nextLine();
@@ -142,11 +136,51 @@ public class Project_CPIT251 {
             throw new FileNotFoundException("file is not exist");
         }
         Scanner inputlogin = new Scanner(file2);
-        //read the data from input file and stor
+        //read the data from input file and store it
         while (inputlogin.hasNext()) {
             user.add(new User(inputlogin.next(), inputlogin.next(), inputlogin.nextInt()));
 
         }
-    }
+        //Read the data from lawyers appointment file and store it
+        File file3 = new File("LawyersAppointments.txt");
 
+        if (!file3.exists()) {
+            throw new FileNotFoundException("file is not exist");
+        }
+        Scanner input3 = new Scanner(file3);
+        while (input3.hasNext()) {
+            String Lname = input3.nextLine();
+            String t = input3.nextLine();
+            String Day = input3.nextLine();
+            String Date = input3.nextLine();
+            Lschedule.add(new Consultation(Lname, t, Day, Date));
+            
+
+        }
+    }
+    // This method will display the available appointment
+    public static void Displayschedule(String name, ArrayList list) {
+        if (name == null) {
+            System.out.println("\nthere is no laywer with this name");
+        } else {
+
+            System.out.println("       - this is  the available appointment  for the lawyer: " + name);
+            Consultation l = new Consultation();
+            Consultation d = l.choose(name, Lschedule);
+            System.out.print(d.toString());
+
+        }
+
+    }
+    //this method will book appointment for the customer
+    public static void BookConsultation(String choise) {
+        if (choise.equalsIgnoreCase("y")) {
+            System.out.println("Your Consltation has been booked successfully "
+      +  "\nPlease be in time");
+
+        } else if (choise.equalsIgnoreCase("N")) {
+            System.out.println("\nWe will inform you if there is any avalible time in the lawyer schedule\n Thank You");
+        }
+
+    }
 }

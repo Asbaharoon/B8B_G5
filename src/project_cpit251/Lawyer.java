@@ -1,4 +1,3 @@
-
 package project_cpit251;
 
 import java.util.Scanner;
@@ -119,6 +118,8 @@ public class Lawyer extends User {
 
         System.out.println(result.toString());
     }
+
+    
 
     @Override
     public String toString() {
