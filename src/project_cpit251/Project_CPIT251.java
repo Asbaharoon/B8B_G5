@@ -81,7 +81,7 @@ public class Project_CPIT251 {
                             //print all user Consultation and ask hem to choice one to rate
                             System.out.println("\nYour ended Consultation is:");
                             Rating.printEnded(user1.Customer_Consultation);
-                            System.out.println("\n choice the Consultation:");
+                            System.out.print("\n choice the Consultation:");
                             int n2 = input2.nextInt();
                             //get the user rate for a Consultation
                             System.out.print("How would you rate your experience out of 10? ");

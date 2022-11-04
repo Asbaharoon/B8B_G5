@@ -15,8 +15,8 @@ public class Rating {
       public static void printEnded(ArrayList<Consultation> consultation){
           for(int i=0;i<consultation.size();i++){
               Consultation con=consultation.get(i);
-              System.out.println("   "+(i+1)+"-   Consultation ID: "+con.getConID()+
-                      "\n   Consultation Date: "+con.getConDate()+
+              System.out.println("   "+(i+1)+"-   Consultation Date: "+
+                      con.getDate()+" "+con.getDay()+" "+con.getTime()+
                       "\n   Case Tyep: "+con.getConsultationLawyer().getC()+
                       "\n   Lawyer name: "+ con.getConsultationLawyer().getN()+"\n");
           }
