@@ -10,7 +10,7 @@ public class Project_CPIT251 {
     static ArrayList<User> user = new ArrayList<>();
     static ArrayList<Lawyer> list = new ArrayList<>();  //decler array list from lawyer class type
     static ArrayList<Consultation> Lschedule = new ArrayList<>();
-    static int numUser = -1;
+    //static int numUser = -1;
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -30,16 +30,20 @@ public class Project_CPIT251 {
             }
 
             User user1 = Login(input2);
+            //if user1=null that's means there is problem with login data
             if (user1 == null) {
                 System.out.println("The user password or Username is incorrect");
                 System.out.println("Please try Again \n");
 
-                //continue;
-            } else {
+            } 
+            //user not = null that's means user successfully login
+            else {
+                
                 int num2 = 0;
                 do {
                     System.out.println("\n       Welcome Back to Consultation \n");
 
+                    //show the menu
                     num2 = Menu();
                     switch (num2) {
                         case 1:
@@ -50,22 +54,18 @@ public class Project_CPIT251 {
                             }
                             System.out.print("Please enter your choice by number of the lawyer: ");
                             int n = input2.nextInt();
-                            // if the entered number match lawyer appointment will display
+                            // if the entered number match lawyer
                             if (Consultation.Displayschedule(n - 1, Lschedule)) {
+                                //check if the appoinment suitable for the user
                                 System.out.println("\n----If it is suitable for you please write (Y) and if not  (N)-------");
                                 String choise = input.nextLine();
                                 //take customer choise and book consltation appoinment
                                 Consultation.BookConsultation(choise, user1,Lschedule.get(n-1));
                             }
-                            /* //Displayschedule(n - 1, Lschedule);
-                            System.out.println("\n----If it is suitable for you please write (Y)  and if not  (N)-------");
-                            String choise = input.nextLine();
-                            //take customer choise and book consltation appoinment*/
-
                             break;
                         case 2:
                             //take the input rom user
-                            System.out.print("Enter the Lawyer name to search pleese :");
+                            System.out.print("\nEnter the Lawyer name to search pleese :");
                             String name = input.nextLine();
                             //call the serach method and save the result
                             Lawyer result = Customers.searchForLawyer(name, list);
@@ -78,18 +78,21 @@ public class Project_CPIT251 {
                             }
                             break;
                         case 3:
-                            System.out.println("Your ended Consultation is:");
+                            //print all user Consultation and ask hem to choice one to rate
+                            System.out.println("\nYour ended Consultation is:");
                             Rating.printEnded(user1.Customer_Consultation);
                             System.out.println("\n choice the Consultation:");
-                            int nn = input2.nextInt();
+                            int n2 = input2.nextInt();
+                            //get the user rate for a Consultation
                             System.out.print("How would you rate your experience out of 10? ");
                             double ra = input.nextDouble();
-                            Rating.RatingCON(user1.Customer_Consultation.get(nn - 1), ra);
+                            //send the rate to method RatingCON to do the mathematical necessary operations
+                            Rating.RatingCON(user1.Customer_Consultation.get(n2 - 1), ra);
                             System.out.println("            Thank you :>");
-
                             break;
                         case 4:
 
+                            //check user if it ia a lawyer or not using id
                         /* if (user.getUserID()<20) {
                              Lawyer.ManageProfile(user.getUserID());
 
@@ -101,21 +104,20 @@ public class Project_CPIT251 {
         }
 
     }
-//this method will display the menu for the user and run choosen function
-
+    
+    //this method will display the menu for the user and run choosen function
     public static int Menu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("--------------------------------------------------");
         System.out.println("    1.  Make Consultation\n    2.  Search for Lawye"
                 + "\n    3.  Rating Consultation Session\n    4.  Manage Lawyer Profile");
         System.out.println("--------------------------------------------------");
-        System.out.print("Enter your choice (1 - 4) or any other number to terminate the program : ");
+        System.out.print("Enter your choice (1 - 4) or any other number to back to login bage: ");
         int choice = sc.nextInt();
         return choice;
     }
-
+    //this method will check user name and password
     public static User Login(Scanner input2) {
-
         System.out.print("Enter Username: ");
         String username = input2.next();
         System.out.print("Enter Password: ");
@@ -132,6 +134,7 @@ public class Project_CPIT251 {
         return null;
     }
 
+    //this method will read all the files
     public static void Readfile() throws FileNotFoundException {
         File file1 = new File("input.txt");
 
@@ -180,52 +183,5 @@ public class Project_CPIT251 {
 
         }
     }
-
 }
-    
-    /*
-    // This method will display the available appointment
-    public static boolean Displayschedule(int n, ArrayList<Consultation> Lschedule) {
-        Scanner sc = new Scanner(System.in);
-        if (n < Lschedule.size()) {
-            if (Lschedule.get(n).getAvailable().equals("available")) {
-                System.out.println("       - this is  the available appointment  for the lawyer: "
-                        + Lschedule.get(n).getConsultationLawyer().getN());
-                System.out.println(Lschedule.get(n).toString());
-                return true;
-            } else {
-                System.out.println("\nWe will inform you if there is any avalible time in the lawyer schedule\n Thank You");
-                return false;
-            }
-        } else {
-            System.out.println("\nthere is no laywer with this number");
-            return false;
-
-        }
-
-    }
-
-    //this method will book appointment for the customer
-    public static void BookConsultation(String choise, User us,Consultation con) {
-        Scanner sc = new Scanner(System.in);
-        if (choise.equalsIgnoreCase("y")) {
-            System.out.print("\n  Please enter a brief description about your case: ");
-            String desc = sc.nextLine();
-             con.setAvailable("not availbale");
-             con.setDescrption(desc);
-             con.setCustomer(us);
-  
-   
-            //add the consultion to customer profile
-            con.getCustomer().AddConsultation(con);
-            //increment the number of Consultation og the lawyer
-            con.getConsultationLawyer().setNumOfConsultations(con.getConsultationLawyer().getNumOfConsultations() + 1);
-            System.out.println("Your Consltation has been booked successfully "
-                    + "\nPlease be in time");
-
-        } else {
-            System.out.println("\nWe are sorry for not having an suitable appointment with you");
-        }
-
-    }*/
-
+ 
