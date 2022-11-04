@@ -1,5 +1,6 @@
 package project_cpit251;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Lawyer extends User {
@@ -10,14 +11,16 @@ public class Lawyer extends User {
     double price;
     int numOfConsultations;
     String CasesTyep = null;
+   double LawyerRate;
 
-    Scanner input = new Scanner(System.in);
 
     public Lawyer() {
 
     }
-
+//    public Lawyer(String name,int UserID,String password, String phone, String email, String degree, String specialty, String casesTyep, double price, int numOfConsultations) {
     public Lawyer(String name, String phone, String email, String degree, String specialty, String casesTyep, double price, int numOfConsultations) {
+        // String []n=name.split(" ");
+        //super(n[0],password,UserID);
         this.Name = name;
         this.Phone = phone;
         this.UserEmail = email;
@@ -26,6 +29,9 @@ public class Lawyer extends User {
         this.CasesTyep = casesTyep;
         this.price = price;
         this.numOfConsultations = numOfConsultations;
+        
+        
+       
     }
 
     public String getN() {
@@ -77,8 +83,15 @@ public class Lawyer extends User {
         this.CasesTyep = y;
 
     }
+    public double getLawyerRate() {
+        return LawyerRate;
+    }
 
-    public void ManageProfile(String info) {
+    public void setLawyerRate(double LawyerRate) {
+        this.LawyerRate = LawyerRate;
+    }
+    public static void ManageProfile(String info) {
+            Scanner input = new Scanner(System.in);
         System.out.println("--------------------------------------------------");
         System.out.println("\t\tLawyer Profile");
         System.out.println("1- Edit Degree"
@@ -118,6 +131,7 @@ public class Lawyer extends User {
 
         System.out.println(result.toString());
     }
+    
 
     
 

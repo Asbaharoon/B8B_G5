@@ -1,12 +1,15 @@
 
 package project_cpit251;
 
+import java.util.ArrayList;
+
 public  class User {
     String UserName = null;
     String userPassword = null;
     String UserEmail = null;
     String Phone;
     int UserID;
+   ArrayList<Consultation> Customer_Consultation = new ArrayList<>();
     public User( ) {
         
     }
@@ -58,6 +61,18 @@ public  class User {
     
     public void setUserID(int UserID) {
         this.UserID = UserID;
+    }
+    public  void AddConsultation(Consultation con){
+     
+      Customer_Consultation.add(con);     
+    }
+        public  void getConsultation(int i){
+     
+      Customer_Consultation.get(i);     
+    }
+    public  void deletConsultation(int i){
+     
+      Customer_Consultation.remove(i);     
     }
   
      @Override
