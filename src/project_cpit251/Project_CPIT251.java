@@ -181,7 +181,7 @@ public class Project_CPIT251 {
         }
     }
 
-    
+}
     
     /*
     // This method will display the available appointment
@@ -228,4 +228,4 @@ public class Project_CPIT251 {
         }
 
     }*/
-}
+
