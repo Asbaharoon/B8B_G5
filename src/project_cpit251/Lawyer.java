@@ -25,6 +25,12 @@ public class Lawyer extends User {
         this.UserID = id;
     }
 
+    Lawyer() {
+        
+    }
+
+   
+
     public String getN() {
         return Name;
     }
