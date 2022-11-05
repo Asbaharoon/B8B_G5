@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Project_CPIT251 {
+public class Main {
 
     static ArrayList<User> user = new ArrayList<>();
     static ArrayList<Lawyer> list = new ArrayList<>();  //decler array list from lawyer class type
@@ -35,10 +35,9 @@ public class Project_CPIT251 {
                 System.out.println("The user password or Username is incorrect");
                 System.out.println("Please try Again \n");
 
-            } 
-            //user not = null that's means user successfully login
+            } //user not = null that's means user successfully login
             else {
-                
+
                 int num2 = 0;
                 do {
                     System.out.println("\n       Welcome Back to Consultation \n");
@@ -60,7 +59,7 @@ public class Project_CPIT251 {
                                 System.out.println("\n----If it is suitable for you please write (Y) and if not  (N)-------");
                                 String choise = input.nextLine();
                                 //take customer choise and book consltation appoinment
-                                Consultation.BookConsultation(choise, user1,Lschedule.get(n-1));
+                                Consultation.BookConsultation(choise, user1, Lschedule.get(n - 1));
                             }
                             break;
                         case 2:
@@ -78,17 +77,21 @@ public class Project_CPIT251 {
                             }
                             break;
                         case 3:
-                            //print all user Consultation and ask hem to choice one to rate
-                            System.out.println("\nYour ended Consultation is:");
-                            Rating.printEnded(user1.Customer_Consultation);
-                            System.out.print("\n choice the Consultation:");
-                            int n2 = input2.nextInt();
+                            if (user1.Customer_Consultation.isEmpty()) {
+                                System.out.println("\n    You do not have any Consultation!");
+                            }
+                           // call method printEnded to print user Consultations
+                            int n2=Rating.printEnded(user1.Customer_Consultation);
+                            if (n2<0){
+                                System.out.println(" Ther is no Consultations with this number!");
+                            }
+                            else{
                             //get the user rate for a Consultation
                             System.out.print("How would you rate your experience out of 10? ");
-                            double ra = input.nextDouble();
+                            double ra = input2.nextDouble();
                             //send the rate to method RatingCON to do the mathematical necessary operations
                             Rating.RatingCON(user1.Customer_Consultation.get(n2 - 1), ra);
-                            System.out.println("            Thank you :>");
+                            System.out.println("            Thank you :>");}
                             break;
                         case 4:
                             //check user if it ia a lawyer or not using id
@@ -101,6 +104,7 @@ public class Project_CPIT251 {
             }
         }
     }
+
     //this method will display the menu for the user and run choosen function
     public static int Menu() {
         Scanner sc = new Scanner(System.in);
@@ -112,6 +116,7 @@ public class Project_CPIT251 {
         int choice = sc.nextInt();
         return choice;
     }
+
     //this method will check user name and password
     public static User Login(Scanner input2) {
         System.out.print("Enter Username: ");
@@ -181,4 +186,3 @@ public class Project_CPIT251 {
         }
     }
 }
- 

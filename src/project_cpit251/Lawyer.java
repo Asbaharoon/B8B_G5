@@ -102,7 +102,7 @@ public class Lawyer extends User {
         String select = input.nextLine();
         
         //Search by id
-        Lawyer result = Customers.searchForLawyer(info, Project_CPIT251.list);
+        Lawyer result = Customers.searchForLawyer(info, Main.list);
         switch (select) {
             case "1":
                 //Case to change degree
@@ -127,7 +127,7 @@ public class Lawyer extends User {
                 
             default:
                 System.out.println("Wrong selection");
-                Project_CPIT251.Menu();//Disply Menu in case of wrong selection
+                Main.Menu();//Disply Menu in case of wrong selection
                         
         }
         System.out.println("--------------------------------------------------");
