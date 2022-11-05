@@ -1,6 +1,7 @@
 package project_cpit251;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -24,6 +25,19 @@ public class Consultation {
         this.time = time;
         this.ConsultationLawyer = Customers.searchForLawyer(Lname, list);
         this.available = "available";
+    }
+
+ 
+
+    Consultation(String Lname, String time, String Day, String Date) {
+        this.Lname = Lname;
+        this.date = Date;
+        this.day = Day;
+        this.time = time;
+    }
+
+    Consultation() {
+        
     }
 
     public String getTime() {
@@ -123,8 +137,8 @@ public class Consultation {
                 System.out.println("       - this is  the available appointment for the lawyer: "
                         + Lschedule.get(n).getConsultationLawyer().getN());
                 System.out.println(Lschedule.get(n).toString());
-                return true;
-            } else {
+                return true
+;            } else {
                 System.out.println("\nWe will inform you if there is any avalible time in the lawyer schedule\n Thank You");
                 return false;
             }
@@ -137,13 +151,12 @@ public class Consultation {
     }
     
     //this method will book appointment for the customer
-    public static void BookConsultation(String choise, User us, Consultation con) {
+    public static void BookConsultation(String choise, User us, Consultation con) throws NoSuchElementException{
         Scanner sc = new Scanner(System.in);
         if (choise.equalsIgnoreCase("y")) {
             // get the description of the Consultation
             System.out.print("\n  Please enter a brief description about your case: ");
-            String desc = sc.nextLine();
-            
+            String desc = sc.nextLine(); 
             //make the appointment by chinging the stat of to not availbale, sending the description, and set the user
             con.setAvailable("not availbale");
             con.setDescrption(desc);
