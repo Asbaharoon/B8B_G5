@@ -13,12 +13,7 @@ public class Lawyer extends User {
     String CasesTyep = null;
     double LawyerRate;
 
-    public Lawyer() {
-
-    }
-
-    public Lawyer(String name, String phone, String email, String degree, String specialty, String casesTyep, double price, int numOfConsultations) {
-
+    public Lawyer(String name, String phone, String email, String degree, String specialty, String casesTyep, double price, int numOfConsultations, int id) {
         this.Name = name;
         this.Phone = phone;
         this.UserEmail = email;
@@ -27,7 +22,7 @@ public class Lawyer extends User {
         this.CasesTyep = casesTyep;
         this.price = price;
         this.numOfConsultations = numOfConsultations;
-
+        this.UserID = id;
     }
 
     public String getN() {
@@ -87,9 +82,10 @@ public class Lawyer extends User {
     public void setLawyerRate(double LawyerRate) {
         this.LawyerRate = LawyerRate;
     }
-
+    
     public static void ManageProfile(String info) {
         Scanner input = new Scanner(System.in);
+        //Print statements
         System.out.println("--------------------------------------------------");
         System.out.println("\t\tLawyer Profile");
         System.out.println("1- Edit Degree"
@@ -98,37 +94,39 @@ public class Lawyer extends User {
         System.out.println("--------------------------------------------------");
         System.out.print("Chose your selection: ");
         String select = input.nextLine();
-
-        //search using id nesreen :>
+        
+        //Search by id
         Lawyer result = Customers.searchForLawyer(info, Project_CPIT251.list);
         switch (select) {
             case "1":
-
+                //Case to change degree
                 System.out.print("Enter your new Degree: ");
                 String Degree = input.nextLine();
                 result.setD(Degree);
-
                 break;
 
             case "2":
+                //Case to change phone
                 System.out.print("Enter your new Phone Number: ");
                 String Phone = input.nextLine();
                 result.setPhone(Phone);
-
                 break;
 
             case "3":
+                //Case to change email
                 System.out.print("Enter your new Email: ");
                 String Email = input.nextLine();
                 result.setUserEmail(Email);
                 break;
-
+                
             default:
                 System.out.println("Wrong selection");
+                Project_CPIT251.Menu();//Disply Menu in case of wrong selection
+                        
         }
         System.out.println("--------------------------------------------------");
 
-        System.out.println(result.toString());
+        System.out.println(result.toString());//show profile after change
     }
 
     @Override

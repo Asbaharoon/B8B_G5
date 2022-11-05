@@ -91,20 +91,16 @@ public class Project_CPIT251 {
                             System.out.println("            Thank you :>");
                             break;
                         case 4:
-
                             //check user if it ia a lawyer or not using id
-                        /* if (user.getUserID()<20) {
-                             Lawyer.ManageProfile(user.getUserID());
-
-                        } */
+                            if (user1.getUserID() < 20) {
+                                Lawyer.ManageProfile(Integer.toString(user1.getUserID()));
+                            }
+                            break;
                     }
-
                 } while (num2 < 5);
             }
         }
-
     }
-    
     //this method will display the menu for the user and run choosen function
     public static int Menu() {
         Scanner sc = new Scanner(System.in);
@@ -153,7 +149,8 @@ public class Project_CPIT251 {
             String price = input.nextLine();
             String num = input.nextLine();
             String CasesTyep = input.nextLine();
-            list.add(new Lawyer(Name, Phone, Email, Degree, Specialty, CasesTyep, Double.parseDouble(price), Integer.parseInt(num)));
+            String id = input.nextLine();
+            list.add(new Lawyer(Name, Phone, Email, Degree, Specialty, CasesTyep, Double.parseDouble(price), Integer.parseInt(num), Integer.parseInt(id)));
 
         }
 
