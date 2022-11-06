@@ -10,6 +10,7 @@ public  class User {
     String Phone;
     int UserID;
    ArrayList<Consultation> Customer_Consultation = new ArrayList<>();
+   static ArrayList<User> user1 = new ArrayList<>();
     public User( ) {
         
     }
@@ -79,6 +80,21 @@ public  class User {
     public String toString() {
         return " " ;
     }
+    public static User Login(String username,String password) {
+         
+
+        //search for the user and return it
+        
+       user1=Main.user;
+        for (int i = 0; i < user1.size(); i++) {
+            if (user1.get(i).getuserPassword().equals(password) && user1.get(i).getUserName().equals(username)) {
+                // numUser = i;
+                return user1.get(i);
+            }
+        }
+
+        return null;
     
     
+}
 }

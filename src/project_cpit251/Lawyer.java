@@ -109,6 +109,7 @@ public class Lawyer extends User {
                 System.out.print("Enter your new Degree: ");
                 String Degree = input.nextLine();
                 result.setD(Degree);
+                
                 break;
 
             case "2":
@@ -116,6 +117,7 @@ public class Lawyer extends User {
                 System.out.print("Enter your new Phone Number: ");
                 String Phone = input.nextLine();
                 result.setPhone(Phone);
+                
                 break;
 
             case "3":
@@ -123,16 +125,17 @@ public class Lawyer extends User {
                 System.out.print("Enter your new Email: ");
                 String Email = input.nextLine();
                 result.setUserEmail(Email);
+                
                 break;
                 
             default:
                 System.out.println("Wrong selection");
-                Main.Menu();//Disply Menu in case of wrong selection
+                 Main.Menu();
                         
         }
         System.out.println("--------------------------------------------------");
-
-        System.out.println(result.toString());//show profile after change
+                System.out.println(result.toString());//show profile after change
+        
     }
 
     @Override
@@ -142,5 +145,5 @@ public class Lawyer extends User {
                 + this.CasesTyep + "\n" + "The Consultations price is: " + this.price + "\n" + "The number Of Consultations is: "
                 + this.numOfConsultations;
     }
-
+     
 }
