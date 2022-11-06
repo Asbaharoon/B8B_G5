@@ -14,6 +14,11 @@ public  class User {
     public User( ) {
         
     }
+    //Constructer to initialize phone and email
+    public User(String phone, String email){
+        this.Phone = phone;
+        this.UserEmail = email;
+    }
     public User(String UserName, String userPassword, int UserID) {
         this.UserName = UserName;
         this.userPassword = userPassword;

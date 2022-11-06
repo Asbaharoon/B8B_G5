@@ -14,9 +14,8 @@ public class Lawyer extends User {
     double LawyerRate;
 
     public Lawyer(String name, String phone, String email, String degree, String specialty, String casesTyep, double price, int numOfConsultations, int id) {
+        super(phone, email);
         this.Name = name;
-        this.Phone = phone;
-        this.UserEmail = email;
         this.Degree = degree;
         this.Specialty = specialty;
         this.CasesTyep = casesTyep;
@@ -89,27 +88,37 @@ public class Lawyer extends User {
         this.LawyerRate = LawyerRate;
     }
     
-    public static void ManageProfile(String info) {
+    //Method to getLawyer by the id
+    public static Lawyer getLawyer(String id, ArrayList<Lawyer> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (id.equals(Integer.toString(list.get(i).getUserID())))//if condition to return lawyer by id 
+            {
+                return list.get(i);
+            }
+        }
+        return null;
+    }
+    //Method to call lawyer profile and edit it
+    public static void ManageProfile(String id) {
         Scanner input = new Scanner(System.in);
         //Print statements
         System.out.println("--------------------------------------------------");
         System.out.println("\t\tLawyer Profile");
         System.out.println("1- Edit Degree"
                 + "\n2- Edit Phone Number"
-                + "\n3- Edit Email ");
+                + "\n3- Edit Email "
+                + "\n*Notice: To return to the main menu, enter any other key");
         System.out.println("--------------------------------------------------");
         System.out.print("Chose your selection: ");
         String select = input.nextLine();
         
-        //Search by id
-        Lawyer result = Customers.searchForLawyer(info, Main.list);
+        Lawyer result = getLawyer(id, Main.list);//Returned Lawyer
         switch (select) {
             case "1":
                 //Case to change degree
                 System.out.print("Enter your new Degree: ");
                 String Degree = input.nextLine();
                 result.setD(Degree);
-                
                 break;
 
             case "2":
@@ -117,7 +126,6 @@ public class Lawyer extends User {
                 System.out.print("Enter your new Phone Number: ");
                 String Phone = input.nextLine();
                 result.setPhone(Phone);
-                
                 break;
 
             case "3":
@@ -125,17 +133,11 @@ public class Lawyer extends User {
                 System.out.print("Enter your new Email: ");
                 String Email = input.nextLine();
                 result.setUserEmail(Email);
-                
                 break;
-                
-            default:
-                System.out.println("Wrong selection");
-                 Main.Menu();
-                        
         }
         System.out.println("--------------------------------------------------");
-                System.out.println(result.toString());//show profile after change
-        
+        System.out.println(result.toString());//show profile after change
+        System.out.println("--------------------------------------------------");
     }
 
     @Override

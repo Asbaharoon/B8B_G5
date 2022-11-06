@@ -154,9 +154,9 @@ public class Main {
             String Email = input.nextLine();
             String Degree = input.nextLine();
             String Specialty = input.nextLine();
+            String CasesTyep = input.nextLine();
             String price = input.nextLine();
             String num = input.nextLine();
-            String CasesTyep = input.nextLine();
             String id = input.nextLine();
             list.add(new Lawyer(Name, Phone, Email, Degree, Specialty, CasesTyep, Double.parseDouble(price), Integer.parseInt(num), Integer.parseInt(id)));
 
