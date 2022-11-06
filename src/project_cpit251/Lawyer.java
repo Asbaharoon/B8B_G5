@@ -106,10 +106,9 @@ public class Lawyer extends User {
         System.out.println("\t\tLawyer Profile");
         System.out.println("1- Edit Degree"
                 + "\n2- Edit Phone Number"
-                + "\n3- Edit Email "
-                + "\n*Notice: To return to the main menu, enter any other key");
+                + "\n3- Edit Email ");
         System.out.println("--------------------------------------------------");
-        System.out.print("Chose your selection: ");
+        System.out.print("Chose your selection (Notice: To return to the main menu, enter any other key): ");
         String select = input.nextLine();
         
         Lawyer result = getLawyer(id, Main.list);//Returned Lawyer
