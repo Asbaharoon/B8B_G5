@@ -89,12 +89,14 @@ public class Main {
                                 if (user1.getUserID() < 20) {
                                     System.out.print("You can't do this because you're not a lawyer. ");
                                 } else {
+                                    
                                     if (user1.Customer_Consultation.isEmpty()) {
                                         System.out.println("\n    You do not have any Consultation!");
                                     }
+                                    else{
                                     // call method printEnded to print user Consultations
                                     int n2 = Rating.printEnded(user1.Customer_Consultation);
-                                    if (n2 < 0) {
+                                    if (n2 <= 0) {
                                         System.out.println(" Ther is no Consultations with this number!");
                                     } else {
                                         //get the user rate for a Consultation
@@ -103,7 +105,7 @@ public class Main {
                                         //send the rate to method RatingCON to do the mathematical necessary operations
                                         Rating.RatingCON(user1.Customer_Consultation.get(n2 - 1), ra);
                                         System.out.println("            Thank you :>");
-                                    }
+                                    }}
                                 }
                                 break;
                             case 4:
