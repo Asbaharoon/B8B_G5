@@ -154,6 +154,8 @@ public class Consultation {
             con.setAvailable("not availbale");
             con.setDescrption(desc);
             con.setCustomer(us);
+            //update the number of consultations of the lawyer
+            con.getConsultationLawyer().setNumOfConsultations(con.getConsultationLawyer().getNumOfConsultations()+1);
 
             //add the consultion to customer profile
             con.getCustomer().AddConsultation(con);

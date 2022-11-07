@@ -49,9 +49,9 @@ public class RatingTest {
         list.add(new Lawyer("Ahmed Alghamdi","0503472498","AhmedAlghamdi@gmail.com","Bachelor","Law","financial cases",150,30,1));
         Consultation consultation = new Consultation("Ahmed Alghamdi", "10:00am" , "Monday" , "16/05",list);
         double rate = 10;
-        double expResult = 15;
+        double expResult = 7.5;
         double result = Rating.RatingCON(consultation, rate);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.1);
         // TODO review the generated test code and remove the default call to fail.
     }
         @Test
@@ -63,7 +63,7 @@ public class RatingTest {
         double rate = 10;
         double expResult = 20;
         double result = Rating.RatingCON(consultation, rate);
-        assertNotEquals(expResult, result, 0.0);
+        assertNotEquals(expResult, result, 0.1);
         // TODO review the generated test code and remove the default call to fail.
     }
 

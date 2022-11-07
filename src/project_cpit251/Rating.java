@@ -7,9 +7,7 @@ public class Rating {
     //this method will print all user consultation  mathematical necessary operations 
     public static double RatingCON(Consultation consultation, double rate) {
         Lawyer law = consultation.getConsultationLawyer();
-        //update the number of consultations of the lawyer
-        law.setNumOfConsultations(law.getNumOfConsultations()+1);
-        rate = rate + law.getLawyerRate();
+        rate = (rate + law.getLawyerRate())/2;
         return rate;
     }
     //this method will print all user consultation
