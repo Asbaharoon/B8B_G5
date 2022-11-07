@@ -10,10 +10,9 @@ public class Main {
     static ArrayList<User> user = new ArrayList<>();
     static ArrayList<Lawyer> list = new ArrayList<>();  //decler array list from lawyer class type
     static ArrayList<Consultation> Lschedule = new ArrayList<>();
-    //static int numUser = -1;
-
+     
     public static void main(String[] args) throws FileNotFoundException {
-
+ 
         Readfile(); //read from file
         Scanner input = new Scanner(System.in);
         Scanner input2 = new Scanner(System.in);
@@ -51,7 +50,7 @@ public class Main {
                         switch (num2) {
                             case 1:
                                 if (user1.getUserID() < 20) {
-                                    System.out.print("You can't do this because you're not a lawyer. ");
+                                    System.out.print("You can't do this because you're  a lawyer. ");
                                 } else {
 
                                     //print all lawyers profile
@@ -87,7 +86,7 @@ public class Main {
                                 break;
                             case 3:
                                 if (user1.getUserID() < 20) {
-                                    System.out.print("You can't do this because you're not a lawyer. ");
+                                    System.out.print("You can't do this because you're a lawyer. ");
                                 } else {
                                     
                                     if (user1.Customer_Consultation.isEmpty()) {
@@ -118,7 +117,7 @@ public class Main {
 
                                 break;
                         }
-                    } while (num2 < 5);
+                    } while (num2 < 5 && num2>0);
                 }
 
             }
@@ -140,7 +139,7 @@ public class Main {
 
     //this method will read all the files
     public static void Readfile() throws FileNotFoundException {
-        File file1 = new File("input.txt");
+        File file1 = new File("LawyersInfo.txt");
 
         if (!file1.exists()) {
             throw new FileNotFoundException("file is not exist");

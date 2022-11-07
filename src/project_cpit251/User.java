@@ -72,9 +72,9 @@ public  class User {
      
       Customer_Consultation.add(con);     
     }
-        public  void getConsultation(int i){
+        public  Consultation getConsultation(int i){
      
-      Customer_Consultation.get(i);     
+       return Customer_Consultation.get(i);     
     }
     public  void deletConsultation(int i){
      

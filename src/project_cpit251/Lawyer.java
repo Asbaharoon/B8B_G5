@@ -10,15 +10,15 @@ public class Lawyer extends User {
     String Specialty = null;
     double price;
     int numOfConsultations;
-    String CasesTyep = null;
+    String CasesType = null;
     double LawyerRate;
 
-    public Lawyer(String name, String phone, String email, String degree, String specialty, String casesTyep, double price, int numOfConsultations, int id) {
+    public Lawyer(String name, String phone, String email, String degree, String specialty, String CasesType, double price, int numOfConsultations, int id) {
         super(phone, email);
         this.Name = name;
         this.Degree = degree;
         this.Specialty = specialty;
-        this.CasesTyep = casesTyep;
+        this.CasesType = CasesType;
         this.price = price;
         this.numOfConsultations = numOfConsultations;
         this.UserID = id;
@@ -30,36 +30,36 @@ public class Lawyer extends User {
 
    
 
-    public String getN() {
+    public String getName() {
         return Name;
     }
 
-    public void setN(String i) {
+    public void setName(String i) {
         this.Name = i;
     }
 
-    public String getD() {
+    public String getDegree() {
         return Degree;
     }
 
-    public void setD(String i) {
+    public void setDegree(String i) {
         this.Degree = i;
     }
 
-    public String getS() {
+    public String getSpecialty() {
         return Specialty;
     }
 
-    public void setS(String y) {
+    public void setSpecialty(String y) {
         this.Specialty = y;
 
     }
 
-    public double getP() {
+    public double getPrice() {
         return price;
     }
 
-    public void setP(double y) {
+    public void setPrice(double y) {
         this.price = y;
     }
 
@@ -71,12 +71,12 @@ public class Lawyer extends User {
         this.numOfConsultations = numOfConsultations;
     }
 
-    public String getC() {
-        return CasesTyep;
+    public String getCacesType() {
+        return CasesType;
     }
 
-    public void setC(String y) {
-        this.CasesTyep = y;
+    public void setCacesType(String y) {
+        this.CasesType = y;
 
     }
 
@@ -117,7 +117,7 @@ public class Lawyer extends User {
                 //Case to change degree
                 System.out.print("Enter your new Degree: ");
                 String Degree = input.nextLine();
-                result.setD(Degree);
+                result.setDegree(Degree);
                 break;
 
             case "2":
@@ -143,7 +143,7 @@ public class Lawyer extends User {
     public String toString() {
         return "The Lawyer name is: " + this.Name + "\n" + "Phone Number: " + this.Phone + "\n" + "Email: " + this.UserEmail + "\n"
                 + "The Degree is: " + this.Degree + "\n" + "The Specialty is: " + this.Specialty + "\n" + "The Case Type is : "
-                + this.CasesTyep + "\n" + "The Consultations price is: " + this.price + "\n" + "The number Of Consultations is: "
+                + this.CasesType + "\n" + "The Consultations price is: " + this.price + "\n" + "The number Of Consultations is: "
                 + this.numOfConsultations;
     }
      

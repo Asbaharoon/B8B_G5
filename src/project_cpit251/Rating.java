@@ -21,8 +21,8 @@ public class Rating {
             Consultation con = consultation.get(i);
             System.out.println("   " + (i + 1) + "-   Consultation Date: "
                     + con.getDate() + " " + con.getDay() + " " + con.getTime()
-                    + "\n   Case Tyep: " + con.getConsultationLawyer().getC()
-                    + "\n   Lawyer name: " + con.getConsultationLawyer().getN() + "\n");
+                    + "\n   Case Tyep: " + con.getConsultationLawyer().getCacesType()
+                    + "\n   Lawyer name: " + con.getConsultationLawyer().getName() + "\n");
         }
         System.out.print("\n choice the Consultation:");
         int n2 = input.nextInt();

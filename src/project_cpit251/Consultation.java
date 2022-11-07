@@ -19,15 +19,13 @@ public class Consultation {
     String available;
 
     Consultation(String Lname, String time, String Day, String Date, ArrayList<Lawyer> list) {
-        //this.Lname = Lname;
+        this.Lname = Lname;
         this.date = Date;
         this.day = Day;
         this.time = time;
         this.ConsultationLawyer = Customers.searchForLawyer(Lname, list);
         this.available = "available";
     }
-
- 
 
     Consultation(String Lname, String time, String Day, String Date) {
         this.Lname = Lname;
@@ -37,7 +35,7 @@ public class Consultation {
     }
 
     Consultation() {
-        
+
     }
 
     public String getTime() {
@@ -122,12 +120,7 @@ public class Consultation {
 
     }
 
-    public void setConsltation() {
-        System.out.println("Your Consltation" + ConID + " has been booked successfully ");
-        System.out.println("Please be in time");
-    }
     // This method will display the available appointment
-
     public static boolean Displayschedule(int n, ArrayList<Consultation> Lschedule) {
         Scanner sc = new Scanner(System.in);
         //check if user choice in the laywer list
@@ -135,10 +128,10 @@ public class Consultation {
             //check if ther is available appointment
             if (Lschedule.get(n).getAvailable().equals("available")) {
                 System.out.println("       - this is  the available appointment for the lawyer: "
-                        + Lschedule.get(n).getConsultationLawyer().getN());
+                        + Lschedule.get(n).getConsultationLawyer().getName());
                 System.out.println(Lschedule.get(n).toString());
-                return true
-;            } else {
+                return true;
+            } else {
                 System.out.println("\nWe will inform you if there is any avalible time in the lawyer schedule\n Thank You");
                 return false;
             }
@@ -149,19 +142,19 @@ public class Consultation {
         }
 
     }
-    
+
     //this method will book appointment for the customer
-    public static void BookConsultation(String choise, User us, Consultation con) throws NoSuchElementException{
+    public static void BookConsultation(String choise, User us, Consultation con) throws NoSuchElementException {
         Scanner sc = new Scanner(System.in);
         if (choise.equalsIgnoreCase("y")) {
             // get the description of the Consultation
             System.out.print("\n  Please enter a brief description about your case: ");
-            String desc = sc.nextLine(); 
+            String desc = sc.nextLine();
             //make the appointment by chinging the stat of to not availbale, sending the description, and set the user
             con.setAvailable("not availbale");
             con.setDescrption(desc);
             con.setCustomer(us);
-            
+
             //add the consultion to customer profile
             con.getCustomer().AddConsultation(con);
             //increment the number of Consultation of the lawyer
