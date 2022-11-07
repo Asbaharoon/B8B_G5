@@ -207,7 +207,7 @@ public class LawyerTest {
     @Test
     public void testGetLawyerRate() {
         System.out.println("getLawyerRate");
-        double expResult = 0.0;
+        double expResult = 5;
         double result = instance.getLawyerRate();
         assertNotEquals(expResult, result,0.1);
 
