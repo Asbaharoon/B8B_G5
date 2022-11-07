@@ -112,9 +112,9 @@ public class UserTest {
     @Test
     public void testSetUserEmail() {
         System.out.println("setUserEmail");
-        String y = "Khaled22@gmail.com";
+        String y = "Ahmed2222@gmail.com";
         instance1.setUserEmail(y);
-        String expectedResult = "Khaled22@gmail.com";
+        String expectedResult = "Ahmed2222@gmail.com";
         String result = instance1.getUserEmail();
         assertEquals(expectedResult, result);
     }

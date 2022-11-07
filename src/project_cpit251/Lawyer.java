@@ -137,7 +137,6 @@ public class Lawyer extends User {
         }
         System.out.println("--------------------------------------------------");
         System.out.println(result.toString());//show profile after change
-        System.out.println("--------------------------------------------------");
     }
 
     @Override

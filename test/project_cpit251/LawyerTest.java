@@ -232,11 +232,10 @@ public class LawyerTest {
     @Test
     public void testGetLawyer() {
         System.out.println("getLawyer");
-        String id = "3";
+        String id = "1";
         ArrayList<Lawyer> list = new ArrayList<>();
-        Lawyer info = new Lawyer("Salman Alghamdi", "0557687843", "SalmanAlghamdi@gmail.com", "Bachelor", "Law", "Criminal cases", 180, 20, 3);
-        list.add(info);
-        Lawyer expectedResult = info;
+        list.add(instance);
+        Lawyer expectedResult = instance;
         Lawyer result = Lawyer.getLawyer(id, list);
         assertEquals(expectedResult, result);
     }
@@ -246,8 +245,7 @@ public class LawyerTest {
         System.out.println("getLawyer");
         String id = "5";
         ArrayList<Lawyer> list = new ArrayList<>();
-        Lawyer info = new Lawyer("Omar Alhashmy", "0552736883", "OmarAlhashmy@gmail.com", "Master", "Law", "Personal status cases", 200, 50, 4);
-        list.add(info);
+        list.add(instance);
         Lawyer result = Lawyer.getLawyer(id, list);
         assertNull(result);
     }

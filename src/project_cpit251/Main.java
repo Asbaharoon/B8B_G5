@@ -58,7 +58,7 @@ public class Main {
                         switch (num2) {
                             case 1:
                                 if (user1.getUserID() < 20) {
-                                    System.out.print("You can't do this because you're  a lawyer!!");
+                                    System.out.println("You can't do this because you're a lawyer!!");
                                 } else {
 
                                     //print all lawyers profile
@@ -96,7 +96,7 @@ public class Main {
                                 break;
                             case 3:
                                 if (user1.getUserID() < 20) {
-                                    System.out.print("You can't do this because you're a lawyer! ");
+                                    System.out.println("You can't do this because you're a lawyer! ");
                                 } else {
                                     
                                     if (user1.Customer_Consultation.isEmpty()) {
