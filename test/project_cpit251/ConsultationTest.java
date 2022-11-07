@@ -22,7 +22,9 @@ import org.junit.Ignore;
  *
  * @author asus
  */
-public class ConsultationTest {
+public class ConsultationTest { 
+ 
+Consultation instance = new Consultation("ahmed alghamdi","9:00am","Monday","09/06" );
     
     public ConsultationTest() {
     }
@@ -51,7 +53,6 @@ public class ConsultationTest {
     
     public void testGetTime() {
         System.out.println("getTime");
-        Consultation instance = new Consultation("ahmed alghamdi","9:00am","Monday","09/06");
         String expResult = "9:00am";
         String result = instance.getTime();
         assertEquals(expResult, result);
@@ -64,10 +65,9 @@ public class ConsultationTest {
     @Test
     public void testSetTime() {
         System.out.println("setTime");
-        String time = "9:00am";
-        Consultation instance = new Consultation();
+        String time = "8:00am";
         instance.setTime(time);
-        String expResult = "9:00am";
+        String expResult = "8:00am";
         String result = instance.getTime();
         assertEquals(expResult, result);
        
@@ -80,7 +80,6 @@ public class ConsultationTest {
     @Test
     public void testGetLname() {
         System.out.println("getLname");
-        Consultation instance = new Consultation("ahmed alghamdi","9:00am","Monday","09/06");
         String expResult = "ahmed alghamdi";
         String result = instance.getLname();
         assertEquals(expResult, result);
@@ -93,10 +92,9 @@ public class ConsultationTest {
     @Test
     public void testSetLname() {
         System.out.println("setLname");
-        String Lname = "Ahmed Alghamdi";
-        Consultation instance = new Consultation();
+        String Lname = "Omar Alghamdi";
         instance.setLname(Lname);
-        String expResult = "Ahmed Alghamdi";
+        String expResult = "Omar Alghamdi";
         String result = instance.getLname();
         assertEquals(expResult, result);
     }
@@ -107,7 +105,6 @@ public class ConsultationTest {
     @Test
     public void testGetDay() {
         System.out.println("getDay");
-        Consultation instance = new Consultation("ahmed alghamdi","9:00am","Monday","09/06");
         String expResult = "Monday";
         String result = instance.getDay();
         assertEquals(expResult, result);
@@ -120,10 +117,9 @@ public class ConsultationTest {
     @Test
     public void testSetDay() {
         System.out.println("setDay");
-        String day = "Monday";
-        Consultation instance = new Consultation();
+        String day = "Sunday";
         instance.setDay(day);
-        String expResult = "Monday";
+        String expResult = "Sunday";
         String result = instance.getDay();
         assertEquals(expResult, result);
     }
@@ -134,7 +130,6 @@ public class ConsultationTest {
     @Test
     public void testGetDate() {
         System.out.println("getDate");
-        Consultation instance = new Consultation("ahmed alghamdi","9:00am","Monday","09/06");
         String expResult = "09/06";
         String result = instance.getDate();
         assertEquals(expResult, result);
@@ -147,10 +142,9 @@ public class ConsultationTest {
     @Test
     public void testSetDate() {
         System.out.println("setDate");
-        String date = "06/09";
-        Consultation instance = new Consultation();
+        String date = "07/09";
         instance.setDate(date);
-        String expResult = "06/09";
+        String expResult = "07/09";
         String result = instance.getDate();
         assertEquals(expResult, result);
     }
@@ -161,9 +155,7 @@ public class ConsultationTest {
     @Test
     public void testGetConID() {
         System.out.println("getConID");
-        Consultation instance = new Consultation();
-       instance.setConID(6);
-        int expResult =  6;
+        int expResult =  0;
         int result = instance.getConID();
         assertEquals(expResult, result);
        
@@ -176,7 +168,6 @@ public class ConsultationTest {
     public void testSetConID() {
         System.out.println("setConID");
         int i = 12;
-        Consultation instance = new Consultation();
         instance.setConID(i);
         int expResult =12;
         int result = instance.getConID();
@@ -190,12 +181,11 @@ public class ConsultationTest {
     @Test
     public void testGetConDate() {
         System.out.println("getConDate");
-        Consultation instance  = new Consultation();
-        instance.setConDate("09/06");
-        String expResult = "09/06";
+        instance.setConDate("07/06");
+        String expResult = "07/06";
         String result = instance.getConDate();
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -205,9 +195,8 @@ public class ConsultationTest {
     public void testSetConDate() {
         System.out.println("setConDate");
         String i = "09/06";
-        Consultation instance = new Consultation();
         instance.setConDate(i);
-         String expResult ="09/06";
+        String expResult = "09/06";
         String result = instance.getConDate();
         assertEquals(expResult, result);
        
@@ -220,7 +209,6 @@ public class ConsultationTest {
     public void testSetAvailable() {
         System.out.println("setAvailable");
         String available = "Available";
-        Consultation instance = new Consultation();
         instance.setAvailable(available);
         String expResult = "Available";
         String result = instance.getAvailable();
@@ -235,9 +223,8 @@ public class ConsultationTest {
     @Test
     public void testGetAvailable() {
         System.out.println("getAvailable");
-        Consultation instance = new Consultation();
-        instance.setAvailable("Available");
-        String expResult = "Available";
+        instance.setAvailable("Not Available");
+        String expResult = "Not Available";
         String result = instance.getAvailable();
         assertEquals(expResult, result);
         
@@ -249,7 +236,6 @@ public class ConsultationTest {
     @Test
     public void testGetDescrption() {
         System.out.println("getDescrption");
-        Consultation instance = new Consultation();
         instance.setDescrption("brief descrption about the case");
         String expResult = "brief descrption about the case";
         String result = instance.getDescrption();
@@ -264,9 +250,8 @@ public class ConsultationTest {
     public void testSetDescrption() {
         System.out.println("setDescrption");
         String i = "brief descrption about the case";
-        Consultation instance = new Consultation();
         instance.setDescrption(i);
-         String expResult = "brief descrption about the case";
+        String expResult = "brief descrption about the case";
         String result = instance.getDescrption();
         assertEquals(expResult, result);
     }
@@ -329,18 +314,7 @@ public class ConsultationTest {
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of setConsltation method, of class Consultation.
-     */
-     
-    @Test
-    @Ignore
-    public void testSetConsltation() {
-        System.out.println("setConsltation");
-        Consultation instance = new Consultation();
-        instance.setConsltation();
-        
-    }
+    
 
     /**
      * Test of Displayschedule method, of class Consultation.
@@ -363,28 +337,15 @@ public class ConsultationTest {
     @Test (expected = NoSuchElementException.class)
     public void testBookConsultation() {
         System.out.println("BookConsultation");
-        Scanner sc = new Scanner(System.in);
-        String choise = "Y";
-        Consultation con = new Consultation();
-        User us = new User();
-        while(sc.hasNextLine()){
-           String desc = sc.nextLine();
-            con.setDescrption(desc);
-        }
-        
-        con.setAvailable("not availbale");
-       
-        con.setCustomer(us);
-        con.getCustomer().AddConsultation(con);
-        
-        Consultation.BookConsultation(choise, us, con);
-        String ex = "Your Consltation has been booked successfully "
-                    + "\nPlease be in time";
-        
-        assertEquals( ex,  con.getConsultationLawyer());
-        
- 
+         String choise = "Y";
+         User us = new User();
+         Consultation.BookConsultation(choise, us, instance);
+         String exavailbale= "not availbale";
+         assertEquals( exavailbale,  instance.getAvailable());
+         assertEquals( instance,   instance.getCustomer().getConsultation(0));
+         assertEquals( "ahmed alghamdi",   instance.getCustomer().UserName);
     }
+   
 
     /**
      * Test of toString method, of class Consultation.

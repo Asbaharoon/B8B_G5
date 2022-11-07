@@ -13,28 +13,33 @@ import org.junit.Test;
 import org.junit.Ignore;
 import static org.junit.Assert.*;
 
-
 /**
  *
  * @author nessm
  */
 public class LawyerTest {
-    
+
+    Lawyer instance = new Lawyer("Ahmed Alghamdi", "0503472498", "AhmedAlghamdi@gmail.com", "Bachelor", "Law", "financial cases", 150, 30, 1);
+      
+
     public LawyerTest() {
     }
-    
+
     @Ignore
     @BeforeClass
     public static void setUpClass() {
     }
+
     @Ignore
     @AfterClass
     public static void tearDownClass() {
     }
+
     @Ignore
     @Before
     public void setUp() {
     }
+
     @Ignore
     @After
     public void tearDown() {
@@ -43,117 +48,105 @@ public class LawyerTest {
     /**
      * Test of getN method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testGetN() {
-        System.out.println("getN");
-        Lawyer instance = new Lawyer();
-        String expResult = "";
-        String result = instance.getN();
+    public void testGetName() {
+        System.out.println("getName");
+        // Lawyer instance = new Lawyer();
+        String expResult = "Ahmed Alghamdi";
+        String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of setN method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testSetN() {
-        System.out.println("setN");
-        String i = "";
+    public void testSetName() {
+        System.out.println("setName");
+        String i = "Ahmed";
         Lawyer instance = new Lawyer();
-        instance.setN(i);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.setName(i);
+        String result = instance.getName();
+        assertEquals(i, result);
+
     }
 
     /**
      * Test of getD method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testGetD() {
-        System.out.println("getD");
-        Lawyer instance = new Lawyer();
-        String expResult = "";
-        String result = instance.getD();
+    public void testGetDegree() {
+        System.out.println("getDegree");
+        String expResult = "Bachelor";
+        String result = instance.getDegree();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of setD method, of class Lawyer.
      */
     @Test
-    public void testSetD() {
-        System.out.println("setD");
-        Lawyer instance = new Lawyer("Ahmed Alghamdi", "0503472498", "AhmedAlghamdi@gmail.com", "Bachelor", "Law", "financial cases", 150, 30, 1);
-        String i = "Phd";
-        instance.setD(i);
-        String expectedResult = "Phd";
-        String result = instance.getD();
+    public void testSetDegree() {
+        System.out.println("setDegree");
+        String i = "Master";
+        instance.setDegree(i);
+        String expectedResult = "Master";
+        String result = instance.getDegree();
         assertEquals(expectedResult, result);
     }
 
     /**
      * Test of getS method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testGetS() {
-        System.out.println("getS");
-        Lawyer instance = new Lawyer();
-        String expResult = "";
-        String result = instance.getS();
+    public void testGetSpecialty() {
+        System.out.println("getSpecialty");
+        String expResult = "Law";
+        String result = instance.getSpecialty();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of setS method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testSetS() {
-        System.out.println("setS");
-        String y = "";
-        Lawyer instance = new Lawyer();
-        instance.setS(y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetSpecialty() {
+        System.out.println("setSpecialty");
+        String y = "Islamic studies";
+        instance.setSpecialty(y);
+        String expResult = "Islamic studies";
+        String result = instance.getSpecialty();
+        assertEquals(expResult, result);
+
     }
 
     /**
      * Test of getP method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testGetP() {
-        System.out.println("getP");
-        Lawyer instance = new Lawyer();
-        double expResult = 0.0;
-        double result = instance.getP();
+    public void testGetPrice() {
+        System.out.println("getPrice");
+        double expResult = 150.0;
+        double result = instance.getPrice();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of setP method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testSetP() {
-        System.out.println("setP");
-        double y = 0.0;
-        Lawyer instance = new Lawyer();
-        instance.setP(y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetPrice() {
+        System.out.println("setPrice");
+        double y = 100.0;
+        instance.setPrice(y);
+        double result = instance.getPrice();
+        double expResult = 100.0;
+        assertEquals(expResult, result, 0.0);
+
     }
 
     /**
@@ -162,12 +155,10 @@ public class LawyerTest {
     @Test
     public void testGetNumOfConsultations() {
         System.out.println("getNumOfConsultations");
-        Lawyer instance = new Lawyer();
-        int expResult = 0;
+        int expResult = 30;
         int result = instance.getNumOfConsultations();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -176,40 +167,38 @@ public class LawyerTest {
     @Test
     public void testSetNumOfConsultations() {
         System.out.println("setNumOfConsultations");
-        int numOfConsultations = 0;
-        Lawyer instance = new Lawyer();
+        int numOfConsultations = 20;
         instance.setNumOfConsultations(numOfConsultations);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int expResult = 20;
+        int result = instance.getNumOfConsultations();
+        assertEquals(expResult, result);
+
     }
 
     /**
      * Test of getC method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testGetC() {
-        System.out.println("getC");
-        Lawyer instance = new Lawyer();
-        String expResult = "";
-        String result = instance.getC();
+    public void testGetCacesType() {
+        System.out.println("getCacesType");
+        String expResult = "financial cases";
+        String result = instance.getCacesType();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of setC method, of class Lawyer.
      */
-    @Ignore
     @Test
-    public void testSetC() {
-        System.out.println("setC");
-        String y = "";
-        Lawyer instance = new Lawyer();
-        instance.setC(y);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetCacesType() {
+        System.out.println("setCacesType");
+        String y = "Criminal cases";
+        instance.setCacesType(y);
+        String expResult = "Criminal cases";
+        String result = instance.getCacesType();
+        assertEquals(expResult, result);
+
     }
 
     /**
@@ -218,12 +207,10 @@ public class LawyerTest {
     @Test
     public void testGetLawyerRate() {
         System.out.println("getLawyerRate");
-        Lawyer instance = new Lawyer();
         double expResult = 0.0;
         double result = instance.getLawyerRate();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -232,11 +219,11 @@ public class LawyerTest {
     @Test
     public void testSetLawyerRate() {
         System.out.println("setLawyerRate");
-        double LawyerRate = 0.0;
-        Lawyer instance = new Lawyer();
+        double LawyerRate = 1.0;
         instance.setLawyerRate(LawyerRate);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        double expResult = 1.0;
+        double result = instance.getLawyerRate();
+        assertEquals(expResult, result, 0.0);
     }
 
     /**
@@ -253,13 +240,13 @@ public class LawyerTest {
         Lawyer result = Lawyer.getLawyer(id, list);
         assertEquals(expectedResult, result);
     }
-    
+
     @Test
     public void testNullObject() {
         System.out.println("getLawyer");
         String id = "5";
         ArrayList<Lawyer> list = new ArrayList<>();
-        Lawyer info =new Lawyer("Omar Alhashmy", "0552736883", "OmarAlhashmy@gmail.com", "Master", "Law", "Personal status cases", 200, 50, 4);
+        Lawyer info = new Lawyer("Omar Alhashmy", "0552736883", "OmarAlhashmy@gmail.com", "Master", "Law", "Personal status cases", 200, 50, 4);
         list.add(info);
         Lawyer result = Lawyer.getLawyer(id, list);
         assertNull(result);
@@ -281,16 +268,21 @@ public class LawyerTest {
     /**
      * Test of toString method, of class Lawyer.
      */
-    @Ignore
     @Test
     public void testToString() {
         System.out.println("toString");
-        Lawyer instance = new Lawyer();
-        String expResult = "";
+        Lawyer instance = new Lawyer("Omar Alhashmy", "0552736883", "OmarAlhashmy@gmail.com", "Master", "Law", "Personal status cases", 200, 50, 4);
+        String expResult = "The Lawyer name is: Omar Alhashmy\n"
+                + "Phone Number: 0552736883\n"
+                + "Email: OmarAlhashmy@gmail.com\n"
+                + "The Degree is: Master\n"
+                + "The Specialty is: Law\n"
+                + "The Case Type is : Personal status cases\n"
+                + "The Consultations price is: 200.0\n"
+                + "The number Of Consultations is: 50";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
-    
+
 }
