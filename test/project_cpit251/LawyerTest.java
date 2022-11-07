@@ -209,7 +209,7 @@ public class LawyerTest {
         System.out.println("getLawyerRate");
         double expResult = 0.0;
         double result = instance.getLawyerRate();
-        assertEquals(expResult, result, 0.0);
+        assertNotEquals(expResult, result,0.1);
 
     }
 
