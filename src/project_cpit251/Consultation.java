@@ -132,7 +132,7 @@ public class Consultation {
                 System.out.println(Lschedule.get(n).toString());
                 return true;
             } else {
-                System.out.println("\nWe will inform you if there is any avalible time in the lawyer schedule\n Thank You");
+                System.out.println("\nSorry we don't have an available appointment \nWe will inform you if there is any avalible time in the lawyer schedule\n      Thank You");
                 return false;
             }
         } else {

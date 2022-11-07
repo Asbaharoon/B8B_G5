@@ -22,6 +22,7 @@ public class Lawyer extends User {
         this.price = price;
         this.numOfConsultations = numOfConsultations;
         this.UserID = id;
+        this.LawyerRate=5.0;
     }
 
     Lawyer() {

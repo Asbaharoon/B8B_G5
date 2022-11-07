@@ -7,8 +7,11 @@ import java.util.Scanner;
 
 public class Main {
 
+    //decler array list from user class type to save the users
     static ArrayList<User> user = new ArrayList<>();
-    static ArrayList<Lawyer> list = new ArrayList<>();  //decler array list from lawyer class type
+    //decler array list from lawyer class type to save the lawyers
+    static ArrayList<Lawyer> list = new ArrayList<>(); 
+    //decler array list from Consultation class type to save the Consultations
     static ArrayList<Consultation> Lschedule = new ArrayList<>();
      
     public static void main(String[] args) throws FileNotFoundException {
@@ -16,6 +19,7 @@ public class Main {
         Readfile(); //read from file
         Scanner input = new Scanner(System.in);
         Scanner input2 = new Scanner(System.in);
+        
         while (true) {
             System.out.println("--------------------------------------\n");
             System.out.println("        Welcome to Consultation \n");
@@ -24,14 +28,17 @@ public class Main {
             System.out.println("            2.Exit   ");
             System.out.print("       Please Enter a number:");
             int num = input2.nextInt();
+            
             if (num == 2) {// exit
                 System.exit(0);
             }
             if (num == 1) {
+                
                 System.out.print("Enter Username: ");
                 String username = input2.next();
                 System.out.print("Enter Password: ");
                 String password = input2.next();
+                
                 User user1 = User.Login(username, password);
                 //if user1=null that's means there is problem with login data
                 if (user1 == null) {
@@ -43,6 +50,7 @@ public class Main {
 
                     int num2 = 0;
                     do {
+                        System.out.println("--------------------------------------------------");
                         System.out.println("\n       Welcome Back to Consultation \n");
 
                         //show the menu
@@ -50,7 +58,7 @@ public class Main {
                         switch (num2) {
                             case 1:
                                 if (user1.getUserID() < 20) {
-                                    System.out.print("You can't do this because you're  a lawyer. ");
+                                    System.out.print("You can't do this because you're  a lawyer!!");
                                 } else {
 
                                     //print all lawyers profile
@@ -61,9 +69,10 @@ public class Main {
                                     System.out.print("Please enter your choice by number of the lawyer: ");
                                     int n = input2.nextInt();
                                     // if the entered number match lawyer
+                                    
                                     if (Consultation.Displayschedule(n - 1, Lschedule)) {
                                         //check if the appoinment suitable for the user
-                                        System.out.println("\n----If it is suitable for you please write (Y) and if not  (N)-------");
+                                        System.out.print("\n----If it is suitable for you please write (Y) and if not  (N): ");
                                         String choise = input.nextLine();
                                         //take customer choise and book consltation appoinment
                                         Consultation.BookConsultation(choise, user1, Lschedule.get(n - 1));
@@ -76,6 +85,7 @@ public class Main {
                                 String name = input.nextLine();
                                 //call the serach method and save the result
                                 Lawyer result = Customers.searchForLawyer(name, list);
+                                
                                 if (result == null) {
                                     //if the laweyer not found
                                     System.out.println("There is no Lawyer with this name!");
@@ -86,7 +96,7 @@ public class Main {
                                 break;
                             case 3:
                                 if (user1.getUserID() < 20) {
-                                    System.out.print("You can't do this because you're a lawyer. ");
+                                    System.out.print("You can't do this because you're a lawyer! ");
                                 } else {
                                     
                                     if (user1.Customer_Consultation.isEmpty()) {
@@ -100,9 +110,11 @@ public class Main {
                                     } else {
                                         //get the user rate for a Consultation
                                         System.out.print("How would you rate your experience out of 10? ");
-                                        double ra = input2.nextDouble();
+                                        double rate = input2.nextDouble();
                                         //send the rate to method RatingCON to do the mathematical necessary operations
-                                        Rating.RatingCON(user1.Customer_Consultation.get(n2 - 1), ra);
+                                        rate=Rating.RatingCON(user1.Customer_Consultation.get(n2 - 1), rate);
+                                        //update the rate of the lawyer
+                                        user1.Customer_Consultation.get(n2 - 1).getConsultationLawyer().setLawyerRate(rate);
                                         System.out.println("            Thank you :>");
                                     }}
                                 }
@@ -112,7 +124,7 @@ public class Main {
                                 if (user1.getUserID() < 20) {
                                     Lawyer.ManageProfile(Integer.toString(user1.getUserID()));
                                 } else {
-                                    System.out.print("You can't do this because you're not a lawyer. ");
+                                    System.out.println("You can't do this because you're not a lawyer! ");
                                 }
 
                                 break;

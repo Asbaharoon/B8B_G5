@@ -198,8 +198,9 @@ public class UserTest {
     /**
      * Test of deletConsultation method, of class User.
      */
-    @Ignore
+    
     @Test
+    @Ignore
     public void testDeletConsultation() {
         System.out.println("deletConsultation");
         int i = 0;
@@ -212,16 +213,16 @@ public class UserTest {
     /**
      * Test of toString method, of class User.
      */
-    @Ignore
+   
     @Test
     public void testToString() {
         System.out.println("toString");
-        User instance = new User();
-        String expResult = "";
+        User instance = new User("Ahmed","A1234", 1);
+        String expResult = "Ahmed A1234 1";
         String result = instance.toString();
-        assertEquals(expResult, result);
+        System.out.println(result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**

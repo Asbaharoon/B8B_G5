@@ -83,7 +83,7 @@ public  class User {
   
      @Override
     public String toString() {
-        return " " ;
+        return UserName+" "+userPassword+" "+UserID ;
     }
     public static User Login(String username,String password) {
          

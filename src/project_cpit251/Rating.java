@@ -5,10 +5,12 @@ import java.util.*;
 public class Rating {
 
     //this method will print all user consultation  mathematical necessary operations 
-    public static void RatingCON(Consultation consultation, double rate) {
+    public static double RatingCON(Consultation consultation, double rate) {
         Lawyer law = consultation.getConsultationLawyer();
-        rate = rate + law.getLawyerRate() / law.getNumOfConsultations();
-        consultation.getConsultationLawyer().setLawyerRate(rate);
+        //update the number of consultations of the lawyer
+        law.setNumOfConsultations(law.getNumOfConsultations()+1);
+        rate = rate + law.getLawyerRate();
+        return rate;
     }
     //this method will print all user consultation
 

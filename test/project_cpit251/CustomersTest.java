@@ -48,9 +48,9 @@ public class CustomersTest {
         System.out.println("searchForLawyer");
         String info = "Ahmed Alghamdi";
         ArrayList<Lawyer> list = new ArrayList<>();
-        Lawyer o=new Lawyer("Ahmed Alghamdi","0503472498","AhmedAlghamdi@gmail.com","Bachelor","Law","financial cases",150,30,1);
-        list.add(o);
-        Lawyer expResult = o;
+        Lawyer lawyer=new Lawyer("Ahmed Alghamdi","0503472498","AhmedAlghamdi@gmail.com","Bachelor","Law","financial cases",150,30,1);
+        list.add(lawyer);
+        Lawyer expResult = lawyer;
         Lawyer result = Customers.searchForLawyer(info, list);
         assertEquals(expResult, result);
       
@@ -62,8 +62,8 @@ public class CustomersTest {
         System.out.println("searchForLawyer");
         String info = "Omar";
         ArrayList<Lawyer> list = new ArrayList<>();
-        Lawyer o=new Lawyer("Ahmed Alghamdi","0503472498","AhmedAlghamdi@gmail.com","Bachelor","Law","financial cases",150,30,1);
-        list.add(o);
+        Lawyer lawyer=new Lawyer("Ahmed Alghamdi","0503472498","AhmedAlghamdi@gmail.com","Bachelor","Law","financial cases",150,30,1);
+        list.add(lawyer);
         Lawyer result = Customers.searchForLawyer(info, list);
         assertNull(result);
       
